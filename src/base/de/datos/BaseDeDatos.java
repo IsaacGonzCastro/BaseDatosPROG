@@ -7,12 +7,13 @@
 package base.de.datos;
 
 /**
- *
+ * Clase principal del proyecto.
  * @author igonzalezcastro
  */
 public class BaseDeDatos {
 
     /**
+     * Aquí hacemos visible la interfaz gráfica.
      * @param args the command line arguments
      */
     public static void main(String[] args) {

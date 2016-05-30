@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package base.de.datos;
 
 import java.sql.Connection;
@@ -16,7 +12,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
+ * Interfaz gráfica del proyecto.
  * @author igonzalezcastro
  */
 public class Interfaz extends javax.swing.JFrame {
@@ -26,6 +22,9 @@ public class Interfaz extends javax.swing.JFrame {
         consulta("");
     }
 
+    /**
+     * Método para realizar una consulta en la tabla.
+     */
     public void consulta(String valor) {
         DefaultTableModel mod = new DefaultTableModel();
         mod.addColumn("idpelicula");
@@ -208,7 +207,9 @@ public class Interfaz extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Botón para insertar valores en la tabla.
+     */
     private void insertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertActionPerformed
         try {
             PreparedStatement pst = cn.prepareStatement("insert into cine (idpelicula,titulo,director) values(?,?,?)");
@@ -222,15 +223,21 @@ public class Interfaz extends javax.swing.JFrame {
             System.out.println(ex.getMessage());
         }
     }//GEN-LAST:event_insertActionPerformed
-
+    /**
+     * Botón para buscar un objeto específico.
+     */
     private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
         consulta(txtbuscar.getText());
     }//GEN-LAST:event_buscarActionPerformed
-
+    /**
+     * Botón para mostrar todos los valores de la tabla.
+     */
     private void MostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarActionPerformed
         consulta("");
     }//GEN-LAST:event_MostrarActionPerformed
-
+    /**
+     * Botón para actualizar los valores después del update o insert.
+     */
     private void actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarActionPerformed
 
         try {
@@ -246,7 +253,9 @@ public class Interfaz extends javax.swing.JFrame {
             System.out.println(ex.getMessage());
         }
     }//GEN-LAST:event_actualizarActionPerformed
-
+    /**
+     * Menú emergente para modificar los valores de la tabla.
+     */
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
         int fila = tabla.getSelectedRow();
@@ -258,7 +267,9 @@ public class Interfaz extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "no selecciono fila");
         }
     }//GEN-LAST:event_jMenuItem1ActionPerformed
-
+    /**
+     * Menú emergente para eliminar los valores de la tabla.
+     */
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         int fila = tabla.getSelectedRow();
         String cod = "";
@@ -326,6 +337,10 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JTextField titul;
     private javax.swing.JTextField txtbuscar;
     // End of variables declaration//GEN-END:variables
+
+    /**
+     * Objeto para establecer la conexión.
+     */
     conexion cc = new conexion();
     Connection cn = cc.conexion();
 
